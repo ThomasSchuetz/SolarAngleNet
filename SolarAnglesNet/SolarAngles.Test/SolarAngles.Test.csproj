@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Converter\Converter.csproj" />
     <ProjectReference Include="..\SolarAngles\SolarAngles.csproj" />
   </ItemGroup>
 
