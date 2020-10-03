@@ -11,7 +11,7 @@ namespace SolarAngles.Test
         public void TestAirMassAtDifferentZenithAngles(double zenithAngle, double expectedResult)
         {
             var result = AirMass.GetAirMass(zenithAngle.FromDegreeToRadians());
-            Assert.AreEqual(expectedResult, result, 0.001);
+            Assert.AreEqual(expectedResult, result, 0.01);
         }
     }
 }

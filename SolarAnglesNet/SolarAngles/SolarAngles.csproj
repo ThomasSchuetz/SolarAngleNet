@@ -9,4 +9,8 @@
     <PackageReference Include="TimeZoneConverter" Version="3.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Converter\Converter.csproj" />
+  </ItemGroup>
+
 </Project>
