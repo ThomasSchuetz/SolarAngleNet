@@ -9,7 +9,7 @@ namespace SolarAngles
         /// Equation 1.4.2
         /// </summary>
         /// <param name="dayOfYear"></param>
-        public static double DayOnCircle(int dayOfYear) 
+        public static double DayOnCircle(double dayOfYear) 
             => ((dayOfYear - 1) * 360.0 / 365.0).FromDegreeToRadians();
     }
 }
