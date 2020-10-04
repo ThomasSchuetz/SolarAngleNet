@@ -9,7 +9,7 @@ namespace SolarAngles
         /// Calculate Air Mass according to Kasten and Young (1989) [footnote 3 on page 10]
         /// </summary>
         /// <param name="zenithAngle">
-        /// Zenith angle in radian. Value has to be between 0° and 90°.
+        /// Zenith angle in radian. Value has to be between 0 and pi/2 [90°].
         /// </param>
         public static double GetAirMass(double zenithAngle) => GetAirMass(zenithAngle, 0);
 

@@ -12,8 +12,7 @@ namespace SolarAngles
         public static double GetExtraterrestrialRadiation(DateTime dateTime)
         {
             int dayOfYear = dateTime.DayOfYear;
-
-            double B = (dayOfYear - 1) * 360.0 / 365.0; // Equation 1.4.2
+            double B = CalculationAbbreviations.DayOnCircle(dayOfYear);
 
             return NaturalConstants.SolarConstant_W_per_m2 * (
                 1.000110 + 0.034221 * Math.Cos(B) + 0.001280 * Math.Sin(B)
