@@ -10,7 +10,7 @@ namespace SolarAngles.DeclinationAngle
         /// </summary>
         public double DeclinationAngle(double dayOfYear)
         {
-            var B = CalculationAbbreviations.DayOnCircle((int)dayOfYear);
+            var B = CalculationAbbreviations.DayOnCircle(dayOfYear);
             
             return 0.006918 
                 - 0.399912 * Math.Cos(B) + 0.070257 * Math.Sin(B) 

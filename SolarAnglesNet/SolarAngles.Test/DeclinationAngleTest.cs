@@ -1,44 +1,41 @@
 ﻿using NUnit.Framework;
-using static Converter.RadianDegreeConverter;
 using SolarAngles.DeclinationAngle;
-using System.Collections.Generic;
+using static Converter.RadianDegreeConverter;
 
 namespace SolarAngles.Test
 {
     [TestFixture]
     public class DeclinationAngleTest
     {
-        [Test]
-        public void CooperModelTests() 
-            => Assert.DoesNotThrow(() => DeclinationAngleTests(new DeclinationAngleCooper()));
-
-        [Test]
-        public void SpencerModelTests()
-            => Assert.DoesNotThrow(() => DeclinationAngleTests(new DeclinationAngleSpencer()));
-
-        public void DeclinationAngleTests(IDeclinationAngle declinationAngleModel)
+        [TestCase(-23.45, 354.75)]
+        [TestCase(23.45, 172.25)]
+        [TestCase(0, 81)]
+        [TestCase(0, 263.5)]
+        public void CooperModelTests(double expectedResult, double dayOfYear)
         {
-            var expectedResultForGivenDay = new Dictionary<double, double>()
-            {
-                { 355, -23.45 },
-                { 172, 23.45 },
-                { 81, 0 },
-                { 263.5, 0 },
-            };
+            var model = new DeclinationAngleCooper();
+            Assert.IsTrue(CheckDeclinationModel(model, expectedResult, dayOfYear));
+        }
 
-            foreach (var item in expectedResultForGivenDay)
-            {
-                var expectedResult = item.Value;
-                var dayOfYear = item.Key;
+        [TestCase(-23.43, 356.5)]
+        [TestCase(23.46, 173)]
+        [TestCase(0, 80.1)]
+        [TestCase(0, 266.7)]
+        public void SpencerModelTests(double expectedResult, double dayOfYear)
+        {
+            var model = new DeclinationAngleSpencer();
+            Assert.IsTrue(CheckDeclinationModel(model, expectedResult, dayOfYear));
+        }
 
-                var result = declinationAngleModel.DeclinationAngle(dayOfYear);
+        private bool CheckDeclinationModel(IDeclinationAngle model, double expectedResult, double dayOfYear)
+        {
+            var result = model.DeclinationAngle(dayOfYear);
 
-                var resultDegrees = result.FromRadiansToDegree();
+            var resultDegrees = result.FromRadiansToDegree();
 
-                // Note: Very large tolerance to comply with all models.
-                Assert.AreEqual(expectedResult, resultDegrees, 1.5);
-                System.Console.WriteLine($"Passed test for day {dayOfYear}");
-            }
+            Assert.AreEqual(expectedResult, resultDegrees, 0.05);
+
+            return true;
         }
     }    
 }
