@@ -1,4 +1,5 @@
 ﻿using SolarAngles.DeclinationAngle;
+using SolarAngles.AirMass;
 
 namespace SolarAngles
 {
@@ -29,15 +30,22 @@ namespace SolarAngles
         #endregion
 
         public IDeclinationAngle DeclinationAngle { get; private set; }
+        public IAirMass AirMass { get; private set; }
 
         private Configuration()
         {
             DeclinationAngle = new DeclinationAngleCooper();
+            AirMass = new AirMassSimpleModel();
         }
 
         public void SetDeclinationAngleModel(IDeclinationAngle declinationAngleModel)
             => DeclinationAngle = declinationAngleModel;
         public void SetDeclinationAngleModel(DeclinationAngleModels model)
             => SetDeclinationAngleModel(DeclinationAngleFactory.GetDeclinationAngleModel(model));
+
+        public void SetAirMassModel(IAirMass airMassModel)
+            => AirMass = airMassModel;
+        public void SetAirMassModel(AirMassModels model)
+            => SetAirMassModel(AirMassFactory.GetAirMassModel(model));
     }
 }
