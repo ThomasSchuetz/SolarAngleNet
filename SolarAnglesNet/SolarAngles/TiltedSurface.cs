@@ -29,6 +29,11 @@ namespace SolarAngles
             this.Gamma = gamma;
         }
 
+        /// <summary>
+        /// Returns a flat horizontal surface (0° slope, 0° azimuth angles)
+        /// </summary>
+        public static TiltedSurface GetFlatHorizontalSurface() => new TiltedSurface(0, 0);
+
         public (double betaRadian, double gammaRadian) GetAnglesRadian() 
             => (Beta.FromDegreeToRadians(), Gamma.FromDegreeToRadians());
     }
