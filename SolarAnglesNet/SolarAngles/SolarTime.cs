@@ -53,7 +53,7 @@ namespace SolarAngles
             double B = CalculationAbbreviations.DayOnCircle(dayOfYear);
             double equationOfTime = EquationOfTime(B);
 
-            double timeDeltaMinutes = 4 * (localStandardMeridian - longitude) + equationOfTime;
+            double timeDeltaMinutes = 4 * (longitude - localStandardMeridian) + equationOfTime;
             return timeDeltaMinutes;
         }
     }

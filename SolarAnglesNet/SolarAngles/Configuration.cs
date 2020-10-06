@@ -1,5 +1,6 @@
-﻿using SolarAngles.DeclinationAngle;
-using SolarAngles.AirMass;
+﻿using SolarAngles.AirMass;
+using SolarAngles.DateTimeConverter;
+using SolarAngles.DeclinationAngle;
 
 namespace SolarAngles
 {
@@ -31,21 +32,22 @@ namespace SolarAngles
 
         public IDeclinationAngle DeclinationAngle { get; private set; }
         public IAirMass AirMass { get; private set; }
+        public IDateTimeConverter DateTimeConverter { get; private set; }
 
         private Configuration()
         {
             DeclinationAngle = new DeclinationAngleCooper();
             AirMass = new AirMassSimpleModel();
+            DateTimeConverter = new DateTimeSolarTime();
         }
 
-        public void SetDeclinationAngleModel(IDeclinationAngle declinationAngleModel)
-            => DeclinationAngle = declinationAngleModel;
         public void SetDeclinationAngleModel(DeclinationAngleModels model)
-            => SetDeclinationAngleModel(DeclinationAngleFactory.GetDeclinationAngleModel(model));
+            => DeclinationAngle = DeclinationAngleFactory.GetDeclinationAngleModel(model);
 
-        public void SetAirMassModel(IAirMass airMassModel)
-            => AirMass = airMassModel;
         public void SetAirMassModel(AirMassModels model)
-            => SetAirMassModel(AirMassFactory.GetAirMassModel(model));
+            => AirMass = AirMassFactory.GetAirMassModel(model);
+
+        public void SetDateTimeConverter(DateTimeModels model, Location location)
+            => DateTimeConverter =  DateTimeFactory.GetDateTimeConverter(model, location);
     }
 }

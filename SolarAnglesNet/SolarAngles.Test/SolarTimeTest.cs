@@ -10,8 +10,8 @@ namespace SolarAngles.Test
     [TestFixture]
     public class SolarTimeTest
     {
-        private readonly double longitude = 89.4;
-        private readonly TimeSpan timeDifferenceToGMT = TimeSpan.FromHours(6);
+        private readonly double longitude = -89.4;
+        private readonly TimeSpan timeDifferenceToGMT = TimeSpan.FromHours(-6);
         private readonly DateTime localTime = new DateTime(2020, 2, 3, 10, 30, 0);
         
         [Test]
@@ -27,7 +27,7 @@ namespace SolarAngles.Test
         public void LocalStandardMeridianForMadisonWisconsin()
         {
             var result = SolarTime.GetLocalStandardMeridian(timeDifferenceToGMT);
-            Assert.AreEqual(90, result, 0.001);
+            Assert.AreEqual(-90, result, 0.001);
         }
 
         [Test]
