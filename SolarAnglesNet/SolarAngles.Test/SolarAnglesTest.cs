@@ -67,5 +67,23 @@ namespace SolarAngles.Test
             Assert.AreEqual(expectedResultDegree, resultRadian.FromRadiansToDegree(), 0.1);
             return true;
         }
+
+        [Test]
+        public void SolarAnglesFacadeTestSunsetForMadisonWisconsinOnMarch16th()
+        {
+            var solarAngles = MadisonWisconsinFlatSurface();
+            var config = Configuration.Config;
+            config.SetDateTimeConverter(DateTimeConverter.DateTimeModels.SolarTime, solarAngles.Location);
+            config.SetSunsetHourAngle(SunsetHourAngle.SunsetHourAngleModels.Basic);
+
+            var date = new DateTime(2020, 3, 16);
+            (_, var sunset) = solarAngles.GetSunriseSunset(date);
+
+            Assert.AreEqual(date.Year, sunset.Year);
+            Assert.AreEqual(date.Month, sunset.Month);
+            Assert.AreEqual(date.Day, sunset.Day);
+            Assert.AreEqual(17, sunset.Hour);
+            Assert.AreEqual(52, sunset.Minute);
+        }
     }
 }
