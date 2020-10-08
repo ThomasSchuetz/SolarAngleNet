@@ -76,5 +76,20 @@ namespace SolarAngles
                 declinationAngle,
                 hourAngle);
         }
+
+        public (DateTime, DateTime) GetSunriseSunset(DateTime date)
+        {
+            var solarNoon = date.Date + TimeSpan.FromHours(12);
+            var sunriseSunset = new SunriseSunset(solarNoon, 
+                Location.Latitude.FromDegreeToRadians());
+
+            return (
+                config.DateTimeConverter.SolarTimeToOriginalTime(sunriseSunset.Sunrise),
+                config.DateTimeConverter.SolarTimeToOriginalTime(sunriseSunset.Sunset)
+                );
+        }
+
+        public DateTime GetSolarNoon(DateTime date)
+            => config.DateTimeConverter.SolarTimeToOriginalTime(date.Date + TimeSpan.FromHours(12));
     }
 }

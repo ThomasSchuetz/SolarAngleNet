@@ -23,7 +23,7 @@ namespace SolarAngles
         /// See Equation 1.5.2 on page 11.
         /// </summary>
         /// <param name="localTime">Local time</param>
-        /// <param name="longitude">Longitude of location</param>
+        /// <param name="longitude">Longitude of location in °</param>
         /// <param name="timeDelta">Time difference to Greenwich Mean Time</param>
         public static DateTime GetSolarTime(DateTime localTime, double longitude, TimeSpan timeDelta)
         {
