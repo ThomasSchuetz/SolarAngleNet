@@ -1,5 +1,4 @@
-﻿using static Converter.RadianDegreeConverter;
-using System;
+﻿using System;
 
 namespace SolarAngles.DeclinationAngle
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Converter
+namespace SolarAngles.Extensions
 {
-    public static class RadianDegreeConverter
+    public static class RadianDegreeExtensions
     {
         public static double FromDegreeToRadians(this double valueDegree)
         {

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SolarAngles.AirMass;
-using static Converter.RadianDegreeConverter;
+using SolarAngles.Extensions;
 
 namespace SolarAngles.Test
 {

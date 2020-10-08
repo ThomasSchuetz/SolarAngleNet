@@ -1,5 +1,5 @@
-﻿using System;
-using static Converter.RadianDegreeConverter;
+﻿using SolarAngles.Extensions;
+using System;
 
 namespace SolarAngles.SunsetHourAngle
 {

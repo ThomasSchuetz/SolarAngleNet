@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using static Converter.RadianDegreeConverter;
+using SolarAngles.Extensions;
 
 namespace SolarAngles.Test
 {
