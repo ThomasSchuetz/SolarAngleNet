@@ -1,6 +1,7 @@
 ﻿using SolarAngles.AirMass;
 using SolarAngles.DateTimeConverter;
 using SolarAngles.DeclinationAngle;
+using SolarAngles.SunsetHourAngle;
 
 namespace SolarAngles
 {
@@ -33,12 +34,14 @@ namespace SolarAngles
         public IDeclinationAngle DeclinationAngle { get; private set; }
         public IAirMass AirMass { get; private set; }
         public IDateTimeConverter DateTimeConverter { get; private set; }
+        public ISunsetHourAngle SunsetHourAngle { get; private set; }
 
         private Configuration()
         {
             DeclinationAngle = new DeclinationAngleCooper();
             AirMass = new AirMassSimpleModel();
             DateTimeConverter = new DateTimeSolarTime();
+            SunsetHourAngle = new SunsetHourAngleAtmosphericRefraction();
         }
 
         public void SetDeclinationAngleModel(DeclinationAngleModels model)
@@ -49,5 +52,8 @@ namespace SolarAngles
 
         public void SetDateTimeConverter(DateTimeModels model, Location location)
             => DateTimeConverter =  DateTimeFactory.GetDateTimeConverter(model, location);
+
+        public void SetSunsetHourAngle(SunsetHourAngleModels model)
+            => SunsetHourAngle = SunsetHourAngleFactory.GetSunsetHourAngleModel(model);
     }
 }
