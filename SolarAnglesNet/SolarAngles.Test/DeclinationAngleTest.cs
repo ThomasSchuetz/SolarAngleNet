@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SolarAngles.DeclinationAngle;
-using static Converter.RadianDegreeConverter;
+using SolarAngles.Extensions;
 
 namespace SolarAngles.Test
 {

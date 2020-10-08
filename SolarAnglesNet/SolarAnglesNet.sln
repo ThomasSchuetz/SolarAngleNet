@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarAngles", "SolarAngles\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarAngles.Test", "SolarAngles.Test\SolarAngles.Test.csproj", "{FD9B0202-3CB8-4DB6-AB26-0165B959FC95}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converter", "Converter\Converter.csproj", "{73E5A741-4030-4CEB-BCD9-F08F48CCA5A6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{FD9B0202-3CB8-4DB6-AB26-0165B959FC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD9B0202-3CB8-4DB6-AB26-0165B959FC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD9B0202-3CB8-4DB6-AB26-0165B959FC95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73E5A741-4030-4CEB-BCD9-F08F48CCA5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73E5A741-4030-4CEB-BCD9-F08F48CCA5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73E5A741-4030-4CEB-BCD9-F08F48CCA5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73E5A741-4030-4CEB-BCD9-F08F48CCA5A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

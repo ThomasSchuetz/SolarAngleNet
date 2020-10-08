@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Thomas Schütz</Authors>
+    <Company />
+    <RepositoryUrl>https://github.com/ThomasSchuetz/SolarAnglesNet</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>.NET implementation of models for solar angles, sunset, sunrise and solar noon as described in "Solar Engineering of Thermal Processes" (4th edition, 2013) by John A. Duffie and William A. Beckman</Description>
+    <PackageProjectUrl>https://github.com/ThomasSchuetz/SolarAnglesNet</PackageProjectUrl>
+    <Version>1.0.1</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReleaseNotes>Added license (MIT) and fixed bug in packaging by adding Converter-project</PackageReleaseNotes>
+    <Copyright>Copyright (c) 2020, Thomas Schütz</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,7 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Converter\Converter.csproj" />
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
