@@ -16,10 +16,5 @@ namespace SolarAngles
             var solarTime = config.DateTimeConverter.OriginalTimeToSolarTime(originalDateTime);
             return calculateAngle(solarTime);
         }
-
-        public DateTime CalculateTime()
-        {
-            throw new NotImplementedException("Placeholder for future calculations, e.g. sunset time");
-        }
     }
 }
